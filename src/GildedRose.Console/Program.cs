@@ -29,7 +29,19 @@ class Program
 
                       };
 
+        //Display initial state before update (first day)
+        foreach (var item in app.Items)
+        {
+            System.Console.WriteLine($"Name: {item.Name}, SellIn: {item.SellIn}, Quality: {item.Quality}");
+        }
+
         app.UpdateQuality();
+
+        //Display state after update (second day)
+        foreach (var item in app.Items)
+        {
+            System.Console.WriteLine($"Name: {item.Name}, SellIn: {item.SellIn}, Quality: {item.Quality}");
+        }
 
         System.Console.ReadKey();
     }
