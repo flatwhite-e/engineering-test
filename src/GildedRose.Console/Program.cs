@@ -50,6 +50,10 @@ class Program
     {
         for (var i = 0; i < Items.Count; i++)
         {
+
+            //Determine if item is Conjured
+            bool isConjured = Items[i].Name.StartsWith("Conjured");
+
             if (Items[i].Name != "Aged Brie" && Items[i].Name != "Backstage passes to a TAFKAL80ETC concert")
             {
                 if (Items[i].Quality > 0)
@@ -57,6 +61,11 @@ class Program
                     if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
                     {
                         Items[i].Quality = Items[i].Quality - 1;
+                        //Degrade twice as fast if Conjured
+                        if (isConjured && Items[i].Quality > 0)
+                        {
+                            Items[i].Quality--;
+                        }
                     }
                 }
             }
@@ -103,6 +112,11 @@ class Program
                             if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
                             {
                                 Items[i].Quality = Items[i].Quality - 1;
+                                //Degrade twice as fast if Conjured
+                                if (isConjured && Items[i].Quality > 0)
+                                {
+                                    Items[i].Quality--;
+                                }
                             }
                         }
                     }
